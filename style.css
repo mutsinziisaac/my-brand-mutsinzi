@@ -10,7 +10,6 @@
   --yellow: #e5f868;
 }
 body {
-  padding: 3em;
   font-family: "San Francisco Text", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -22,6 +21,7 @@ h2 {
 nav {
   display: flex;
   justify-content: space-between;
+  padding: 3em;
 }
 .profile {
   background-color: gray;
@@ -37,6 +37,7 @@ nav {
 }
 /*style for the main content*/
 .container {
+  padding: 3em;
   margin-top: 5em;
   display: flex;
   flex-direction: column;
@@ -121,4 +122,40 @@ nav {
   position: relative;
   bottom: 70px;
   right: 300px;
+}
+/*styling contactme page*/
+.contact {
+  background-color: #e5f868;
+  color: #0c0c0c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+  gap: 2em;
+}
+.ContactForm input {
+  width: 50em;
+  height: 3em;
+  border: none;
+  border-radius: 5px;
+  background-color: #0c0c0c;
+  color: aliceblue;
+}
+.ContactForm textarea {
+  width: 50em;
+  color: aliceblue;
+  border-radius: 5px;
+  border-radius: 5px;
+  background-color: var(--purple);
+}
+.ContactForm button {
+  width: 10em;
+  height: 2em;
+  border: none;
+  border-radius: 5px;
+  background-color: #7c68f8;
 }
