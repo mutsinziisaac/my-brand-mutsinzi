@@ -5,7 +5,7 @@
 
 :root {
   --background-color: #0c0c0c;
-  --text-color: white;
+  --text-color: #ffffff;
   --purple: #7c68f8;
   --yellow: #e5f868;
 }
@@ -13,11 +13,23 @@ body {
   font-family: "San Francisco Text", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 h2 {
-  margin: 50px;
+  margin: 7em;
 }
 /* style for the navigation bar*/
+.oval {
+  width: 70em;
+  height: 20em;
+  background-color: #241390;
+  border-radius: 8em;
+  filter: blur(550px);
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  z-index: -1;
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -158,4 +170,10 @@ nav {
   border: none;
   border-radius: 5px;
   background-color: #7c68f8;
+}
+.purple-highlight {
+  color: var(--purple);
+}
+.yellow-highlight {
+  color: var(--yellow);
 }
