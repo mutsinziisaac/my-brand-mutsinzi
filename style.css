@@ -9,6 +9,10 @@
   --purple: #7c68f8;
   --yellow: #e5f868;
 }
+input::placeholder {
+  color: var(--text-color);
+  padding: 1em;
+}
 body {
   font-family: "San Francisco Text", sans-serif;
   background-color: var(--background-color);
@@ -17,6 +21,11 @@ body {
 }
 h2 {
   margin: 7em;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer; /* Optional: Change cursor on hover */
 }
 /* style for the navigation bar*/
 .oval {
@@ -36,10 +45,19 @@ nav {
   padding: 3em;
 }
 .profile {
-  background-color: gray;
-  width: 5em;
-  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6em;
+  height: 6em;
   border-radius: 5em;
+  border: 5px solid var(--yellow);
+  overflow: hidden;
+}
+.profile-pic {
+  width: 6em;
+  height: 6em;
+  object-fit: cover;
 }
 .navBar {
   gap: 2em;
@@ -84,10 +102,18 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-.img {
+.project-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 15em;
   border: 3px solid var(--yellow);
+}
+.project-img {
+  width: 100%;
+  height: 15em;
+  object-fit: cover;
 }
 .content {
   width: 40%;
@@ -126,6 +152,7 @@ nav {
   left: 100px;
 }
 .blog {
+  display: flex;
   width: 40%;
   height: 300px;
   background-color: var(--yellow);
@@ -134,6 +161,15 @@ nav {
   position: relative;
   bottom: 70px;
   right: 300px;
+}
+.blog-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #0c0c0c;
+}
+.blog-info h4 {
+  text-decoration: underline;
 }
 /*styling contactme page*/
 .contact {
@@ -176,4 +212,44 @@ nav {
 }
 .yellow-highlight {
   color: var(--yellow);
+}
+/*style for login page*/
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form {
+  width: 30%;
+  height: 20em;
+  background-color: #0c0c0c;
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 90px black;
+}
+.login-form input {
+  border: none;
+  height: 3em;
+  width: 25em;
+  border-radius: 2em;
+  background-color: #6c7c98;
+}
+.login-profile {
+  position: relative;
+  top: 40px;
+  border: 3px solid var(--yellow);
+}
+.loginBtn {
+  width: 7em;
+  height: 2em;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--yellow);
 }
