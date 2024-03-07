@@ -2,7 +2,9 @@
   padding: 0;
   margin: 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --background-color: #0c0c0c;
   --text-color: #ffffff;
@@ -21,7 +23,7 @@ h2 {
 a {
   text-decoration: none;
   color: inherit;
-  cursor: pointer; /* Optional: Change cursor on hover */
+  cursor: pointer;
 }
 /* style for the navigation bar*/
 .oval {
@@ -46,7 +48,11 @@ nav {
   width: 6em;
   height: 6em;
   border-radius: 5em;
-  border: 5px solid var(--yellow);
+  border: solid 4px transparent;
+  background-image: linear-gradient(black, black),
+    linear-gradient(315deg, var(--purple), #fd1d1d 50%, #fcb045);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
   overflow: hidden;
 }
 .profile-pic {
@@ -69,7 +75,8 @@ nav {
   text-align: center;
   height: 25em;
   align-items: center;
-  height: max-content;
+  height: fit-content;
+  margin-bottom: 300px;
 }
 .container h1 {
   margin-bottom: 2em;
@@ -84,10 +91,21 @@ nav {
 /*style for the tech stack*/
 .stack {
   width: 60%;
-  height: 5em;
+  height: 7em;
   margin: 2em;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  border: solid 5px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(black, black),
+    linear-gradient(315deg, var(--purple), #fd1d1d 50%, #fcb045);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.stack div i {
+  display: block;
+  margin-bottom: 7px;
 }
 /*style for the main portfolio*/
 .project {
@@ -133,13 +151,15 @@ nav {
   border: 2px solid var(--yellow);
 }
 /*style for the Blog*/
+.blogs {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  width: 60%;
+  gap: 20px;
+}
 .blog {
-  width: 30%;
-  height: 25em;
+  height: 26em;
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 5em;
 }
 .blog-img-container {
   display: flex;
@@ -152,6 +172,17 @@ nav {
   height: fit-content;
   object-fit: cover;
   border-radius: 15px;
+}
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 8em;
+  padding: 9px;
+  text-align: left;
+}
+.blog-Btns i {
+  padding: 10px;
 }
 /*styling contactme page*/
 .contact {
@@ -168,11 +199,24 @@ nav {
 .ContactForm input {
   width: 40em;
   height: 3em;
-  border: none;
-  border-radius: 5px;
+  outline: none;
+  border-radius: 1em;
+  color: #ffffff;
+  border: solid 4px transparent;
+  background-image: linear-gradient(black, black),
+    linear-gradient(315deg, var(--purple), #fd1d1d 50%, #fcb045);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 .ContactForm textarea {
-  border-radius: 5px;
+  outline: none;
+  border-radius: 1em;
+  color: #ffffff;
+  border: solid 4px transparent;
+  background-image: linear-gradient(black, black),
+    linear-gradient(315deg, var(--purple), #fd1d1d 50%, #fcb045);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 .ContactForm button {
   width: 10em;
@@ -180,6 +224,7 @@ nav {
   border: none;
   border-radius: 5px;
   background-color: #7c68f8;
+  margin-bottom: 5em;
 }
 .purple-highlight {
   color: var(--purple);
@@ -235,14 +280,15 @@ nav {
     margin: 3em;
   }
   .profile {
-    border: 2px solid var(--yellow);
+    border: solid 2px transparent;
   }
   .stack {
     width: 90%;
-    height: 5em;
-    border: 5px solid var(--purple);
-    border-style: double;
-    margin: 2em;
+    height: 7.5em;
+    border: solid 2px transparent;
+  }
+  .container {
+    margin-bottom: 60px;
   }
   .project {
     width: 80%;
@@ -263,7 +309,25 @@ nav {
     margin: 15px;
     width: 70px;
   }
-  .content {
+  .blogs {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 90%;
+    gap: 20px;
+  }
+  .blog {
+    height: fit-content;
+  }
+  .blog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 19px;
+    text-align: left;
+  }
+  p,
+  h4,
+  h3 {
     font-size: 13px;
   }
   .navBar {
@@ -280,6 +344,17 @@ nav {
   }
   .ContactForm input {
     width: 100%;
-    height: 3em;
+    height: 2em;
+    outline: none;
+    border-radius: 9px;
+    color: #ffffff;
+    border: solid 4px transparent;
+    background-image: linear-gradient(black, black),
+      linear-gradient(315deg, var(--purple), #fd1d1d 50%, #fcb045);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+  .ContactForm button {
+    width: 7em;
   }
 }
