@@ -197,7 +197,7 @@ nav {
   gap: 2em;
 }
 .ContactForm input {
-  width: 40em;
+  width: 50em;
   height: 3em;
   outline: none;
   border-radius: 1em;
@@ -295,7 +295,6 @@ nav {
     margin-bottom: 4em;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
   }
   .project-img-container {
     height: 20em;
@@ -316,7 +315,13 @@ nav {
     gap: 20px;
   }
   .blog {
-    height: fit-content;
+    height: 55em;
+  }
+  .blog-img-container {
+    height: 40em;
+  }
+  .blog-img {
+    height: 40em;
   }
   .blog-content {
     display: flex;
@@ -343,7 +348,7 @@ nav {
     right: 10px;
   }
   .ContactForm input {
-    width: 100%;
+    width: 28em;
     height: 2em;
     outline: none;
     border-radius: 9px;
