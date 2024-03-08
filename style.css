@@ -86,7 +86,7 @@ nav {
   list-style: none;
   margin: 5em;
   justify-content: space-between;
-  width: 14em;
+  width: 25em;
 }
 /*style for the tech stack*/
 .stack {
@@ -276,6 +276,9 @@ nav {
   body {
     font-size: 7px;
   }
+  h1 {
+    font-size: large;
+  }
   h2 {
     margin: 3em;
   }
@@ -288,7 +291,10 @@ nav {
     border: solid 2px transparent;
   }
   .container {
-    margin-bottom: 60px;
+    margin: 10em 0 60px 0;
+  }
+  .socials {
+    margin: 15em 0 20em 0;
   }
   .project {
     width: 80%;
