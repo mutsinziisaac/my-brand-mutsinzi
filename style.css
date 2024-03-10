@@ -142,6 +142,7 @@ nav {
   border-radius: 4px;
   background-color: var(--yellow);
   border: none;
+  color: var(--background-color);
 }
 .CodeBtn {
   border-radius: 4px;
@@ -223,6 +224,7 @@ nav {
   height: 2em;
   border: none;
   border-radius: 5px;
+  color: inherit;
   background-color: #7c68f8;
   margin-bottom: 5em;
 }
@@ -265,8 +267,69 @@ nav {
   border-radius: 5px;
   background-color: var(--yellow);
 }
+.back {
+  position: absolute;
+  top: 55px;
+  left: 55px;
+}
 #error {
   color: red;
+}
+/*dashboard*/
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #7c68f8;
+  width: 20%;
+  height: 100vh;
+}
+.Dashboard {
+  display: flex;
+}
+.navigation {
+  position: fixed;
+}
+.dash-nav {
+  height: 12em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.dash-hover :hover {
+  cursor: pointer;
+  color: #e5f868;
+}
+.main {
+  height: fit-content;
+  width: 80%;
+  background-color: #181818;
+  position: relative;
+  left: 300px;
+}
+.dash-head {
+  width: 80%;
+  background-color: #0c0c0c;
+  padding: 2em;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+}
+.dash-main {
+  display: grid;
+  gap: 1em;
+  padding-top: 2em;
+  justify-content: center;
+  grid-template-columns: repeat(3, 25%);
+  margin-top: 100px;
+}
+.bars {
+  display: none;
+}
+.footer {
+  text-align: center;
+  width: 80%;
 }
 @media only screen and (max-width: 767px) {
   body {
@@ -333,6 +396,7 @@ nav {
     text-align: left;
   }
   p,
+  li,
   h4,
   h3 {
     font-size: 13px;
@@ -363,5 +427,30 @@ nav {
   }
   .ContactForm button {
     width: 7em;
+  }
+  .login-form {
+    width: 80%;
+    height: 45em;
+    gap: 5em;
+    padding: 3em;
+  }
+  .navigation {
+    display: none;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .dash-head {
+    width: 100%;
+    padding: 2em;
+  }
+  .dash-main {
+    display: grid;
+    grid-template-columns: repeat(1, 70%);
+    margin-top: 50px;
+  }
+  .bars {
+    display: block;
   }
 }
