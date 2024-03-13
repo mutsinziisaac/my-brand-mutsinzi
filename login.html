@@ -17,14 +17,26 @@
           <i class="fa-solid fa-circle-arrow-left fa-2x"></i>
         </a>
       </div>
-      <form action="#" class="login-form" id="form">
-        <h3>Login</h3>
-        <input type="text" placeholder="Name:" id="name" />
-        <input type="password" placeholder="password:" id="password" />
-        <button class="loginBtn" type="submit">Submit</button>
-        <div id="error"></div>
-      </form>
+      <div class="form-container">
+        <form action="#" class="login-form" id="form">
+          <div class="form-control">
+            <label for="">Username</label>
+            <input type="text" placeholder="dudu" id="username" />
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <small>error message</small>
+          </div>
+          <div class="form-control">
+            <label for="">Password</label>
+            <input type="password" id="password" placeholder="password" />
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <small>error message</small>
+          </div>
+          <button type="submit">submit</button>
+        </form>
+      </div>
     </div>
-    <script src="/script.js"></script>
+    <script src="/login.js"></script>
   </body>
 </html>
