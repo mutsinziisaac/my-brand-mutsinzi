@@ -4,14 +4,21 @@ const password = document.getElementById("password");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   checkInputs();
+
+  const usernameValue = username.value.trim();
+  const passwordValue = password.value.trim();
+
+  if (usernameValue !== "dudu" || passwordValue !== "12345678") {
+    alert("incorrect staff");
+  } else {
+    window.location.href = "dashboard.html";
+  }
 });
 
 function checkInputs() {
   const usernameValue = username.value.trim();
   const passwordValue = password.value.trim();
-
   if (usernameValue === "") {
     setErrorFor(username, "username is empty");
   } else {
