@@ -68,10 +68,18 @@ function display() {
     const description = document.createElement("p");
     description.innerText = blog.description;
 
+    const blogBtns = document.createElement("div");
+    blogBtns.classList.add("blog-Btns");
+    blogBtns.innerHTML = `
+    <i class="fa-solid fa-pen-to-square fa-2x"></i>
+    <i class="fa-regular fa-trash-can fa-2x"></i>
+    `;
+
     blogImageContainer.appendChild(blogImage);
     blogDiv.appendChild(blogImageContainer);
     content.appendChild(title);
     content.appendChild(description);
+    content.appendChild(blogBtns);
     blogDiv.appendChild(content);
     blogs.appendChild(blogDiv);
   });

@@ -1,31 +1,3 @@
-/*const name = document.getElementById("name");
-const password = document.getElementById("password");
-const form = document.getElementById("form");
-const errors = document.getElementById("error");
-const blogs = document.getElementById("blogs");
-
-form.addEventListener("submit", (e) => {
-  let messages = [];
-
-  if (name.value === "" || name.value == null) {
-    messages.push("Name is required!");
-  }
-
-  if (password.value.length <= 8) {
-    messages.push("Password must be at least 8 characters");
-  }
-
-  if (messages.length > 0) {
-    e.preventDefault();
-
-    errors.innerHTML = messages
-      .map((message) => `<li>${message}</li>`)
-      .join("");
-  }
-
-  console.log(messages);
-});
-*/
 let blogData = localStorage.getItem("blogData");
 blogData = blogData ? JSON.parse(blogData) : [];
 
@@ -50,10 +22,18 @@ function display() {
     const description = document.createElement("p");
     description.innerText = blog.description;
 
+    const blogBtns = document.createElement("div");
+    blogBtns.classList.add("blog-Btns");
+    blogBtns.innerHTML = `
+    <i class="fa-regular fa-heart fa-2x"></i>
+    <i class="fa-regular fa-comment fa-2x"></i>
+    `;
+
     blogImageContainer.appendChild(blogImage);
     blogDiv.appendChild(blogImageContainer);
     content.appendChild(title);
     content.appendChild(description);
+    content.appendChild(blogBtns);
     blogDiv.appendChild(content);
     blogs.appendChild(blogDiv);
   });

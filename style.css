@@ -159,7 +159,7 @@ nav {
   gap: 20px;
 }
 .blog {
-  height: 26em;
+  height: fit-content;
   border-radius: 15px;
 }
 .blog-img-container {
@@ -238,19 +238,24 @@ nav {
 .login-container {
   width: 100vw;
   min-height: 100vh;
-  background-color: var(--purple);
+  background-color: #241390;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
 }
 .form-container {
-  box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
+  box-shadow: 0 22px 55px rgb(0, 0, 0, 0.3);
   width: 400px;
 }
 .login-form {
-  padding: 30px 40px;
   background-color: #0c0c0c;
+  padding: 30px 40px;
+  border-radius: 15px;
+}
+.login-form h1 {
+  margin-bottom: 2em;
+  text-align: center;
 }
 .form-control {
   margin-bottom: 10px;
@@ -267,7 +272,7 @@ nav {
   display: block;
   padding: 10px;
   font-size: 14px;
-  width: 100%;
+  width: 92%;
 }
 .form-control.success input {
   border-color: #2ecc71;
@@ -277,8 +282,8 @@ nav {
 }
 .form-control i {
   position: absolute;
-  top: 40px;
-  right: -8px;
+  top: 35px;
+  right: 10px;
   color: #181818;
   visibility: hidden;
 }
@@ -304,20 +309,19 @@ nav {
 .login-form button {
   background-color: var(--yellow);
   border: none;
+  border-radius: 5px;
   display: block;
   font-family: inherit;
   font-size: 16px;
   padding: 10px;
-  width: 107%;
+  width: 100%;
+  margin-bottom: 2em;
 }
 
 .back {
   position: absolute;
   top: 55px;
   left: 55px;
-}
-#error {
-  color: red;
 }
 /*dashboard*/
 .navigation {
@@ -372,13 +376,7 @@ nav {
   display: none;
 }
 dialog {
-  background: linear-gradient(
-    135deg,
-    rgba(225, 225, 225, 0.1),
-    rgba(225, 225, 225, 0)
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: var(--purple);
   color: aliceblue;
   width: 600px;
   height: 400px;
@@ -386,6 +384,9 @@ dialog {
   border: none;
   top: 30%;
   left: 35%;
+}
+#blogDialog::backdrop {
+  backdrop-filter: blur(5px) brightness(60%);
 }
 #blogForm {
   display: grid;
@@ -403,7 +404,7 @@ dialog {
   height: 25px;
 }
 #blogForm button {
-  width: 70px;
+  width: 90px;
   height: 20px;
   border: none;
   background-color: #e5f868;
@@ -480,7 +481,9 @@ dialog {
   p,
   li,
   h4,
-  h3 {
+  h3,
+  label,
+  small {
     font-size: 13px;
   }
   .navBar {
@@ -510,11 +513,11 @@ dialog {
   .ContactForm button {
     width: 7em;
   }
+  .form-container {
+    width: 350px;
+  }
   .login-form {
-    width: 80%;
-    height: 45em;
-    gap: 5em;
-    padding: 3em;
+    padding: 9px 20px;
   }
   .navigation {
     display: none;
