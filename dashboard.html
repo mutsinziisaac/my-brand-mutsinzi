@@ -33,102 +33,39 @@
             <i class="fa-solid fa-circle-plus fa-2x"></i>
           </p>
         </div>
-        <div class="dash-main" id="blogs">
-          <div class="blog">
-            <div class="blog-img-container">
-              <img
-                src="./images/Workout Fail Gifs (1).gif"
-                alt=""
-                class="blog-img"
-              />
-            </div>
-            <div class="blog-content">
-              <h4>Benefits of Exercising</h4>
-              <p>
-                liiste porro necessitatibus et vitae aperiam ratione autem!
-                Quas...
-              </p>
-              <div class="blog-Btns">
-                <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                <i class="fa-regular fa-trash-can fa-2x"></i>
-              </div>
-            </div>
-          </div>
-          <div class="blog">
-            <div class="blog-img-container">
-              <img
-                src="./images/Stay Focused (1).gif"
-                alt=""
-                class="blog-img"
-              />
-            </div>
-            <div class="blog-content">
-              <h4>Stay focused</h4>
-              <p>
-                liiste porro necessitatibus et vitae aperiam ratione autem!
-                Quas...
-              </p>
-              <div class="blog-Btns">
-                <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                <i class="fa-regular fa-trash-can fa-2x"></i>
-              </div>
-            </div>
-          </div>
-          <div class="blog">
-            <div class="blog-img-container">
-              <img
-                src="./images/JOHN WICK , Kontorn Boonyanate.jpeg"
-                alt=""
-                class="blog-img"
-              />
-            </div>
-            <div class="blog-content">
-              <h4>Boggie man</h4>
-              <p>
-                liiste porro necessitatibus et vitae aperiam ratione autem!
-                Quas...
-              </p>
-              <div class="blog-Btns">
-                <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                <i class="fa-regular fa-trash-can fa-2x"></i>
-              </div>
-            </div>
-          </div>
-          <div class="blog">
-            <div class="blog-img-container">
-              <img
-                src="./images/Marketing Illustrations.jpeg"
-                alt=""
-                class="blog-img"
-              />
-            </div>
-            <div class="blog-content">
-              <h4>Crypto</h4>
-              <p>
-                liiste porro necessitatibus et vitae aperiam ratione autem!
-                Quas...
-              </p>
-              <div class="blog-Btns">
-                <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                <i class="fa-regular fa-trash-can fa-2x"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="dash-main" id="blogs"></div>
+        <hr />
+        <h3 class="messagetitle">Messages</h3>
+        <div class="messages" id="messages"></div>
       </div>
       <dialog id="blogDialog" class="glass">
         <h1>Add new blog</h1>
         <form action="" id="blogForm">
           <label for="imageURl">Image URL</label>
-          <input type="text" id="imageURL" />
+          <input type="file" id="imageURL" required />
 
           <label for="title">Blog Title</label>
-          <input type="text" id="title" />
+          <input type="text" id="title" required />
 
           <label for="description">Description</label>
-          <input type="text" id="description" />
+          <input type="text" id="description" required />
 
           <button type="submit">Save</button>
+        </form>
+      </dialog>
+      <dialog id="updateDialog" class="glass">
+        <h1>update Blog</h1>
+        <form action="" id="updateForm">
+          <label for="imageURl">Image URL</label>
+          <input type="file" id="imageURL" required />
+
+          <label for="title">Blog Title</label>
+          <input type="text" id="title" required />
+
+          <label for="description">Description</label>
+          <input type="text" id="description" required />
+
+          <button type="submit">Update</button>
         </form>
       </dialog>
     </div>

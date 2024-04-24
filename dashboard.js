@@ -1,6 +1,7 @@
 const openModal = document.getElementById("openBlogModal");
 const modal = document.getElementById("blogDialog");
 const blogs = document.getElementById("blogs");
+const updateModal = document.getElementById("updateDialog");
 
 openModal.addEventListener("click", () => {
   modal.showModal();
@@ -17,35 +18,71 @@ modal.addEventListener("click", (e) => {
   }
 });
 
-document.getElementById("blogForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  let image = document.getElementById("imageURL").value;
-  let title = document.getElementById("title").value;
-  let description = document.getElementById("description").value;
-
-  let existingData = JSON.parse(localStorage.getItem("blogData")) || [];
-
-  existingData = existingData.length === 0 ? [] : existingData;
-
-  let blogData = {
-    image: image,
-    title: title,
-    description: description,
-  };
-
-  existingData.push(blogData);
-
-  let jsonData = JSON.stringify(existingData);
-
-  localStorage.setItem("blogData", jsonData);
-
-  alert("blog saved successfully");
-  display();
+updateModal.addEventListener("click", (e) => {
+  const dialogDimensions = updateModal.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    updateModal.close();
+  }
 });
 
-let blogData = localStorage.getItem("blogData");
-blogData = blogData ? JSON.parse(blogData) : [];
+const blogForm = document.getElementById("blogForm");
+
+blogForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const description = document.getElementById("description").value;
+  const imageFile = document.getElementById("imageURL").files[0];
+
+  const formData = new FormData();
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("image", imageFile);
+
+  try {
+    const response = await fetch(
+      "https://my-brand-mutsinzi-api.onrender.com/api/blogs",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to save blog");
+    }
+
+    const data = await response.json();
+    modal.close();
+    location.reload();
+    blogForm.reset();
+  } catch (error) {
+    console.error("Error saving blog:", error.message);
+  }
+});
+
+let blogData;
+
+fetch("https://my-brand-mutsinzi-api.onrender.com/api/blogs")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return response.json();
+  })
+  .then((data) => {
+    blogData = data;
+    display();
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
 
 function display() {
   blogData.forEach((blog) => {
@@ -70,10 +107,21 @@ function display() {
 
     const blogBtns = document.createElement("div");
     blogBtns.classList.add("blog-Btns");
-    blogBtns.innerHTML = `
-    <i class="fa-solid fa-pen-to-square fa-2x"></i>
-    <i class="fa-regular fa-trash-can fa-2x"></i>
-    `;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = `<i class="fa-regular fa-trash-can fa-2x"></i>`;
+    deleteBtn.addEventListener("click", () => {
+      deleteBlog(blog._id);
+    });
+
+    const updateBtn = document.createElement("button");
+    updateBtn.innerHTML = `<i class="fa-solid fa-pen-to-square fa-2x"></i>`;
+    updateBtn.addEventListener("click", () => {
+      updateBlog(blog);
+    });
+
+    blogBtns.appendChild(updateBtn);
+    blogBtns.appendChild(deleteBtn);
 
     blogImageContainer.appendChild(blogImage);
     blogDiv.appendChild(blogImageContainer);
@@ -85,4 +133,136 @@ function display() {
   });
 }
 
-display();
+const updateForm = document.getElementById("updateForm");
+
+async function updateBlog(blog) {
+  const userToken = localStorage.getItem("token");
+  updateModal.showModal();
+  updateForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const imageFile = document.getElementById("imageURL").files[0];
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("image", imageFile);
+
+    try {
+      const response = await fetch(
+        `https://my-brand-mutsinzi-api.onrender.com/api/blogs/${blog._id}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to save blog");
+      }
+
+      const data = await response.json();
+      modal.close();
+      location.reload();
+      updateForm.reset();
+      alert(data.message);
+    } catch (error) {
+      console.error("Error saving blog:", error.message);
+    }
+  });
+}
+
+async function deleteBlog(blogId) {
+  const userToken = localStorage.getItem("token");
+  try {
+    const response = await fetch(
+      `https://my-brand-mutsinzi-api.onrender.com/api/blogs/${blogId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Failed to delete blog");
+    }
+    location.reload();
+    console.log("Blog deleted successfully");
+  } catch (error) {
+    console.error("Error deleting blog:", error);
+  }
+}
+
+const messages = document.getElementById("messages");
+
+let messageData;
+
+fetch("https://my-brand-mutsinzi-api.onrender.com/api/messages")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return response.json();
+  })
+  .then((data) => {
+    messageData = data;
+    displayMessage();
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+
+function displayMessage() {
+  messageData.forEach((message) => {
+    const messageDiv = document.createElement("h4");
+    messageDiv.classList.add("message");
+    const name = document.createElement("h4");
+    name.innerText = `Name: ${message.name}`;
+    const email = document.createElement("p");
+    email.innerText = `Email: ${message.email}`;
+    const text = document.createElement("p");
+    text.innerText = `Message: ${message.message}`;
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("deleteMsg");
+    deleteBtn.innerText = "delete";
+    deleteBtn.addEventListener("click", () => {
+      deleteMsg(message._id);
+    });
+
+    messageDiv.appendChild(name);
+    messageDiv.appendChild(email);
+    messageDiv.appendChild(text);
+    messageDiv.appendChild(deleteBtn);
+    messages.appendChild(messageDiv);
+  });
+}
+
+async function deleteMsg(messageId) {
+  const userToken = localStorage.getItem("token");
+  try {
+    const response = await fetch(
+      `https://my-brand-mutsinzi-api.onrender.com/api/messages/${messageId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Failed to delete message");
+    }
+    const data = await response.json();
+    location.reload();
+    console.log("message deleted successfully");
+  } catch (error) {
+    console.error("Error deleting message:", error);
+  }
+}

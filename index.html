@@ -159,92 +159,27 @@
         </div>
       </div>
       <h2>Blog</h2>
-      <div class="blogs" id="blogs">
-        <div class="blog">
-          <div class="blog-img-container">
-            <img
-              src="./images/Workout Fail Gifs (1).gif"
-              alt=""
-              class="blog-img"
-            />
-          </div>
-          <div class="blog-content">
-            <h4>Benefits of Exercising</h4>
-            <p>
-              liiste porro necessitatibus et vitae aperiam ratione autem!
-              Quas...
-            </p>
-            <div class="blog-Btns">
-              <i class="fa-regular fa-heart fa-2x"></i>
-              <i class="fa-regular fa-comment fa-2x"></i>
-            </div>
-          </div>
-        </div>
-        <div class="blog">
-          <div class="blog-img-container">
-            <img src="./images/Stay Focused (1).gif" alt="" class="blog-img" />
-          </div>
-          <div class="blog-content">
-            <h4>Stay focused</h4>
-            <p>
-              liiste porro necessitatibus et vitae aperiam ratione autem!
-              Quas...
-            </p>
-            <div class="blog-Btns">
-              <i class="fa-regular fa-heart fa-2x"></i>
-              <i class="fa-regular fa-comment fa-2x"></i>
-            </div>
-          </div>
-        </div>
-        <div class="blog">
-          <div class="blog-img-container">
-            <img
-              src="./images/JOHN WICK , Kontorn Boonyanate.jpeg"
-              alt=""
-              class="blog-img"
-            />
-          </div>
-          <div class="blog-content">
-            <h4>Boggie man</h4>
-            <p>
-              liiste porro necessitatibus et vitae aperiam ratione autem!
-              Quas...
-            </p>
-            <div class="blog-Btns">
-              <i class="fa-regular fa-heart fa-2x"></i>
-              <i class="fa-regular fa-comment fa-2x"></i>
-            </div>
-          </div>
-        </div>
-        <div class="blog">
-          <div class="blog-img-container">
-            <img
-              src="./images/Marketing Illustrations.jpeg"
-              alt=""
-              class="blog-img"
-            />
-          </div>
-          <div class="blog-content">
-            <h4>Crypto</h4>
-            <p>
-              liiste porro necessitatibus et vitae aperiam ratione autem!
-              Quas...
-            </p>
-            <div class="blog-Btns">
-              <i class="fa-regular fa-heart fa-2x"></i>
-              <i class="fa-regular fa-comment fa-2x"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="blogs" id="blogs"></div>
+      <dialog id="commentDialog" class="dialog">
+        <form action="" id="commentForm">
+          <input
+            type="text"
+            id="commentText"
+            required
+            placeholder="Add comment"
+          />
+          <button type="submit" class="commentBtn">Comment</button>
+        </form>
+        <div class="dialog-content" id="commentDialogContent"></div>
+      </dialog>
     </div>
     <div class="contact">
       <h1>Reach Out</h1>
       <p>mutsinziisaac123@gmail.com</p>
-      <form action="#" class="ContactForm">
-        <input type="text" placeholder="Name:" />
-        <input type="email" placeholder="Email:" />
-        <textarea name="" id="" cols="30" rows="15"></textarea>
+      <form class="ContactForm" id="messageForm">
+        <input type="text" placeholder="Name:" id="name" />
+        <input type="email" placeholder="Email:" id="email" />
+        <textarea name="" id="messageText" cols="30" rows="15"></textarea>
         <button>Submit</button>
       </form>
       <hr class="footer" />
