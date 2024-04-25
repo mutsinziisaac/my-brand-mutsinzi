@@ -3,6 +3,20 @@ const modal = document.getElementById("blogDialog");
 const blogs = document.getElementById("blogs");
 const updateModal = document.getElementById("updateDialog");
 
+function alerBox(message) {
+  const alert = document.getElementById("alert");
+  alert.showModal();
+  const text = document.createElement("p");
+  text.innerHTML = message;
+
+  alert.appendChild(text);
+  alert.appendChild;
+
+  setTimeout(function () {
+    alert.close();
+  }, 3000);
+}
+
 openModal.addEventListener("click", () => {
   modal.showModal();
 });
@@ -61,12 +75,14 @@ blogForm.addEventListener("submit", async (e) => {
     modal.close();
     location.reload();
     blogForm.reset();
+    alerBox(data.message);
   } catch (error) {
     console.error("Error saving blog:", error.message);
+    alerBox("error creating blog");
   }
 });
 
-let blogData;
+let blogData = [];
 
 fetch("https://my-brand-mutsinzi-api.onrender.com/api/blogs")
   .then((response) => {
@@ -194,6 +210,7 @@ async function deleteBlog(blogId) {
     }
     location.reload();
     console.log("Blog deleted successfully");
+    alerBox("Blog deleted");
   } catch (error) {
     console.error("Error deleting blog:", error);
   }
@@ -260,8 +277,8 @@ async function deleteMsg(messageId) {
       throw new Error("Failed to delete message");
     }
     const data = await response.json();
-    location.reload();
-    console.log("message deleted successfully");
+
+    alerBox(data.message);
   } catch (error) {
     console.error("Error deleting message:", error);
   }

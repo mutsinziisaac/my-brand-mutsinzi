@@ -1,11 +1,23 @@
 const blogs = document.getElementById("blogs");
 
+function alerBox(message) {
+  const alert = document.getElementById("alert");
+  alert.showModal();
+  const text = document.createElement("p");
+  text.innerHTML = message;
+
+  alert.appendChild(text);
+  alert.appendChild;
+
+  setTimeout(function () {
+    alert.close();
+  }, 3000);
+}
+
 let blogData;
 
-// Make a GET request to fetch data from the /api/blogs endpoint
 fetch("https://my-brand-mutsinzi-api.onrender.com/api/blogs")
   .then((response) => {
-    // Check if the response is successful (status code 200)
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -21,8 +33,6 @@ fetch("https://my-brand-mutsinzi-api.onrender.com/api/blogs")
     // Handle any errors that occur during the fetch operation
     console.error("Error fetching data:", error);
   });
-
-console.log(blogData);
 
 function display() {
   blogData.forEach((blog) => {
@@ -70,6 +80,11 @@ function display() {
 }
 async function likeBlog(blogId) {
   const userToken = localStorage.getItem("token");
+
+  if (!userToken) {
+    window.location.href = "login.html";
+    return;
+  }
 
   try {
     const response = await fetch(
@@ -137,23 +152,23 @@ function displayComments(blogId, comments) {
       // Get the comment text from the input field
       const commentText = document.getElementById("commentText").value;
 
-      // Retrieve the user token from localStorage
       const userToken = localStorage.getItem("token");
+      if (!userToken) {
+        window.location.href = "login.html";
+        return;
+      }
 
-      // Construct the request body
       const requestBody = {
         text: commentText,
       };
-
-      // Make a POST request to submit the comment
       try {
         const response = await fetch(
-          `http://localhost:3000/api/blogs/${blogId}/comments`,
+          `https://my-brand-mutsinzi-api.onrender.com/api/blogs/${blogId}/comments`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${userToken}`, // Include the user token in the request headers
+              Authorization: `Bearer ${userToken}`,
             },
             body: JSON.stringify(requestBody),
           }
@@ -169,10 +184,9 @@ function displayComments(blogId, comments) {
         location.reload();
       } catch (error) {
         console.error("Error submitting comment:", error);
-        alert("Failed to submit comment");
       }
     });
-  // Show the dialog
+
   dialog.showModal();
 
   dialog.addEventListener("click", (e) => {
@@ -220,10 +234,10 @@ messageForm.addEventListener("submit", async (e) => {
     }
 
     const data = await response.json();
+    messageForm.reset();
+    alerBox(data.message);
   } catch (error) {
     console.error("Error sending message:", error.message);
     alert("Failed to send message");
   }
 });
-
-display();

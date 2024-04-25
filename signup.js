@@ -4,14 +4,18 @@ const password = document.getElementById("password");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  checkInputs();
+
+  // Validate the inputs
+  if (!checkInputs()) {
+    return; // Stop form submission if inputs are invalid
+  }
 
   const usernameValue = username.value.trim();
   const passwordValue = password.value.trim();
 
   try {
     const response = await fetch(
-      "https://my-brand-mutsinzi-api.onrender.com/api/log-in",
+      "https://my-brand-mutsinzi-api.onrender.com/api/sign-up",
       {
         method: "POST",
         headers: {
@@ -25,7 +29,7 @@ form.addEventListener("submit", async (e) => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to log in");
+      throw new Error("Failed to sign up");
     }
 
     const data = await response.json();
@@ -33,56 +37,40 @@ form.addEventListener("submit", async (e) => {
 
     localStorage.setItem("token", accessToken);
 
-    const decodedToken = parseJwt(accessToken);
-    const userRole = decodedToken.role;
-
-    switch (userRole) {
-      case "admin":
-        window.location.href = "dashboard.html";
-        break;
-      case "user":
-        window.location.href = "index.html";
-        break;
-      default:
-        alert("Unauthorized");
-    }
+    window.location.href = "index.html";
   } catch (error) {
-    console.error("Login failed:", error.message);
-    alert("Incorrect username or password");
+    console.error("Signup failed:", error.message);
   }
 });
-
-function parseJwt(token) {
-  const base64Url = token.split(".")[1];
-  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-  const jsonPayload = decodeURIComponent(
-    atob(base64)
-      .split("")
-      .map(function (c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join("")
-  );
-
-  return JSON.parse(jsonPayload);
-}
 
 function checkInputs() {
   const usernameValue = username.value.trim();
   const passwordValue = password.value.trim();
+
+  // Reset validation errors
+  setErrorFor(username, "");
+  setErrorFor(password, "");
+
+  let isValid = true;
+
   if (usernameValue === "") {
-    setErrorFor(username, "username is empty");
+    setErrorFor(username, "Username is empty");
+    isValid = false;
   } else {
     setSuccessFor(username);
   }
 
   if (passwordValue === "") {
-    setErrorFor(password, "password is empty");
+    setErrorFor(password, "Password is empty");
+    isValid = false;
   } else if (passwordValue.length < 8) {
-    setErrorFor(password, "password should be 8 characters atleast");
+    setErrorFor(password, "Password should be at least 8 characters");
+    isValid = false;
   } else {
     setSuccessFor(password);
   }
+
+  return isValid;
 }
 
 function setErrorFor(input, message) {

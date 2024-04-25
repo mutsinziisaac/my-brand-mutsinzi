@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -22,11 +25,15 @@
         <img src="./images/IMG_6829.jpg" alt="" class="profile-pic" />
       </div>
       <ul class="navBar">
-        <li>Skills</li>
-        <li>Portifolio</li>
-        <li>Blog</li>
-        <li>Reach Out</li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#reach-out">Reach Out</a></li>
+        <p>
+          <a href="login.html"
+            >Login <i class="fa-solid fa-arrow-right-to-bracket"></i
+          ></a>
+        </p>
       </ul>
     </nav>
     <div class="oval"></div>
@@ -45,7 +52,7 @@
         <li><i class="fa fa-github fa-3x" aria-hidden="true"></i></li>
         <li><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></li>
       </div>
-      <h2>Skills</h2>
+      <h2 id="skills">Skills</h2>
       <div class="stack">
         <div>
           <i class="fa-brands fa-js fa-4x"></i>
@@ -91,7 +98,7 @@
           <p>NPM</p>
         </div>
       </div>
-      <h2>Portifolio</h2>
+      <h2 id="portfolio">Portifolio</h2>
       <div class="project">
         <div class="project-img-container">
           <img
@@ -158,7 +165,7 @@
           </div>
         </div>
       </div>
-      <h2>Blog</h2>
+      <h2 id="blog">Blog</h2>
       <div class="blogs" id="blogs"></div>
       <dialog id="commentDialog" class="dialog">
         <form action="" id="commentForm">
@@ -173,8 +180,10 @@
         <div class="dialog-content" id="commentDialogContent"></div>
       </dialog>
     </div>
+
+    <dialog class="alert" id="alert"></dialog>
     <div class="contact">
-      <h1>Reach Out</h1>
+      <h1 id="reach-out">Reach Out</h1>
       <p>mutsinziisaac123@gmail.com</p>
       <form class="ContactForm" id="messageForm">
         <input type="text" placeholder="Name:" id="name" />
