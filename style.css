@@ -514,6 +514,7 @@ nav {
   top: 30%;
   left: 35%;
   padding: 15px;
+  overflow-x: hidden;
 }
 .message {
   background-color: rgb(47, 45, 45);
@@ -738,7 +739,7 @@ nav {
     margin-bottom: 15px;
   }
   .pic {
-    width: 30px;
+    min-width: 30px;
     height: 30px;
     border: solid 2px transparent;
   }
