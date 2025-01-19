@@ -143,6 +143,7 @@ nav {
   background-color: var(--yellow);
   border: none;
   color: var(--background-color);
+  padding: 5px;
 }
 .CodeBtn {
   border-radius: 4px;
@@ -150,6 +151,11 @@ nav {
   color: #ffffff;
   border: none;
   border: 2px solid var(--yellow);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 15px;
 }
 /*style for the Blog*/
 .blogs {
