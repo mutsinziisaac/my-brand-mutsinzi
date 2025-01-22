@@ -80,7 +80,7 @@ export const DATA = {
       badges: [],
       href: "https://www.bureauveritas.ug/",
       location: "Kampala",
-      title: "Software Engineer",
+      title: "System Administrator",
       logoUrl: "/bv.png",
       start: "Feb 2021",
       end: "Jun 2023",
