@@ -96,7 +96,7 @@ export const DATA = {
       logoUrl: "/isbat.jpeg",
     },
     {
-      school: "ISBAT university",
+      school: "ISBAT University",
       href: "https://isbatuniversity.ac.ug/",
       degree: "Diploma in Software Engineering",
       logoUrl: "/isbat.jpeg",
