@@ -8,7 +8,7 @@ export const DATA = {
   location: "Kampala, Uganda",
   locationLink: "https://www.google.com/maps/place/kampala",
   description:
-    "A dedicated and detail-oriented software engineer with a passion for building robust, scalable, and user-centric applications. Skilled in designing and implementing efficient backend logic, crafting modern user interfaces, and integrating advanced features such as authentication, payment gateways, and API-driven systems. Experienced in leveraging technologies like Java, Golang and JavaScript frameworks like Next JS to deliver impactful solutions. Driven by a commitment to innovation, learning, and collaboration to solve complex technical challenges.",
+    "A dedicated and detail-oriented software engineer with a passion for building robust, scalable, and user-centric applications.",
   summary:
     "In 2020, I wrote my first line of code in JavaScript and instantly fell in love with coding. This passion led me to develop complex systems, including an e-commerce platform powered by Golang, capable of processing 1,000 orders per second. I pursued a degree in Computer Science, interned at Andela, Africa's largest tech recruiting company, and participated in over 14 hackathons for fun, honing my skills and embracing the thrill of innovation.",
   avatarUrl: "/me.png",
