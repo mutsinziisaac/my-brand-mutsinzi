@@ -69,7 +69,7 @@ export const DATA = {
       href: "https://ura.go.ug/en/",
       location: "Nakawa, Kampala",
       title: "Software Engineering Intern",
-      logoUrl: "/bv.png",
+      logoUrl: "/ura.png",
       start: "July 2025",
       end: "Sept 2025",
       description:
