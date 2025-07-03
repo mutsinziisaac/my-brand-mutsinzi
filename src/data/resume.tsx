@@ -64,6 +64,18 @@ export const DATA = {
 
   work: [
     {
+      company: "Uganda Revenue Authority",
+      badges: [],
+      href: "https://ura.go.ug/en/",
+      location: "Nakawa, Kampala",
+      title: "Software Engineering Intern",
+      logoUrl: "/bv.png",
+      start: "July 2025",
+      end: "Sept 2025",
+      description:
+        "Contributed to the development and maintenance of internal web applications to support tax administration processes. Assisted in writing clean, efficient code, debugging, and testing under the guidance of senior engineers. Collaborated with cross-functional teams to gather requirements, implement new features, and improve system performance and security.",
+    },
+    {
       company: "Andela",
       href: "https://www.andela.com/",
       badges: [],
@@ -71,7 +83,7 @@ export const DATA = {
       title: "Full Stack Engineer",
       logoUrl: "/andela.png",
       start: "Jun 2023",
-      end: "Present",
+      end: "Dec 2025",
       description:
         "Contributed to DevPulse , an innovative online education platform designed to empower developers and managers to collaborate seamlessly. Played a pivotal role in building the platform using cutting-edge technologies, including Next.js for the frontend, Nest.js for the backend, PostgreSQL for robust data management, and Socket.IO for real-time communication features. Helped enhance user experience and scalability, fostering an environment of productive collaboration.",
     },
